@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+   >
+
+    <data>
+
+        <variable
+            name="cityItem"
+            type="com.example.travel.city.City"/>
+
+        <variable
+            name="clickListenerBind"
+            type="com.example.travel.city.CityItemListener" />
+
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_20sdp"
+    android:onClick="@{() -> clickListenerBind.onClick(cityItem)}">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_130sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_10sdp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        city_img="@{cityItem}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:srcCompat="@drawable/paris"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/name"
+        city_name="@{cityItem}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:text="Paris"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_17ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
